@@ -26,7 +26,7 @@ const userNavigation = [
 export function MyNavBar() {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="light" variant="light" className="shadow p-3 mb-5">
         <Container>
           <Navbar.Brand href="#home">ShipSystem</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
