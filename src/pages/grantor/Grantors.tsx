@@ -2,12 +2,13 @@ import { Title } from "../../components/Title";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import GrantorService from "../../services/GrantorService";
 import { IGrantorData } from "../../types/Grantor";
 
 export function Grantors() {
   const [grantorList, setGrantorList] = useState<Array<IGrantorData>>([]);
+  const dataFetchedRef = useRef(false);
 
   async function retrieveGrantos() {
     const response = await GrantorService.getAll();
@@ -15,15 +16,20 @@ export function Grantors() {
   }
 
   useEffect(() => {
-    retrieveGrantos();
+    if (!dataFetchedRef.current) {
+      dataFetchedRef.current = true;
+      retrieveGrantos();
+    }
   }, []);
 
   return (
     <>
       <Title title={"Concedentes"} />
-      <Button href="grantors/new" variant="primary">
-        Novo
-      </Button>
+      <div className="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+        <Button href="grantors/new" variant="primary">
+          Novo
+        </Button>
+      </div>
       <Table striped bordered responsive>
         <thead>
           <tr>
