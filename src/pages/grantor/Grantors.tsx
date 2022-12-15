@@ -25,7 +25,7 @@ export function Grantors() {
   return (
     <>
       <Title title={"Concedentes"} />
-      <div className="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+      <div className="d-grid gap-2 d-md-flex justify-content-md-end pb-3">
         <Button href="grantors/new" variant="primary">
           Novo
         </Button>

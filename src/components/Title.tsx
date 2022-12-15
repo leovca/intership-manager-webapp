@@ -1,8 +1,8 @@
 export function Title({ title }): JSX.Element {
   return (
-    <header>
+    <header className="mb-3">
       <div>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
       </div>
     </header>
   );
